@@ -44,6 +44,18 @@ Além disso, foi utilizado o padrão DTO (Data Transfer Object) para separar os 
 - Paginação nos endpoints de listagem
 - Endpoint para consulta de disponibilidade de um estúdio por data
 
+## Uso de Inteligência Artificial
+
+Durante o desenvolvimento deste projeto, foi utilizado o auxílio de Inteligência Artificial (Claude - Anthropic) como ferramenta de apoio nos seguintes aspectos:
+
+- Orientação sobre a estrutura e arquitetura do projeto
+- Auxílio na resolução de problemas de configuração do ambiente (JDK, Spring Boot, Swagger)
+- Suporte na escrita e revisão do código
+
+Todo o código foi compreendido, revisado e é de total responsabilidade do autor. O candidato é capaz de explicar cada decisão técnica, a arquitetura escolhida e dar manutenção em qualquer parte do código produzido.
+
+As decisões técnicas — como a escolha da arquitetura em camadas, a estratégia de conversão de fusos horários para UTC e a lógica de detecção de conflitos de agendamento — foram tomadas com pleno entendimento do problema e das soluções aplicadas.
+
 ## Conclusão
 
 A solução entregue cobre todos os requisitos obrigatórios do desafio: CRUD completo de estúdios e hosts, módulo de agendamentos com validação de conflito de horários, suporte a fusos horários e tratamento padronizado de erros. A arquitetura foi pensada para ser clara, modular e de fácil manutenção, seguindo as boas práticas de engenharia de software descritas no edital.
