@@ -44,9 +44,46 @@ Além disso, foi utilizado o padrão DTO (Data Transfer Object) para separar os 
 - Paginação nos endpoints de listagem
 - Endpoint para consulta de disponibilidade de um estúdio por data
 
-## Uso de Inteligência Artificial
+## Interface Gráfica (Desafio Extra — GUI)
 
-Durante o desenvolvimento deste projeto, foi utilizado o auxílio de Inteligência Artificial (Claude - Anthropic) como ferramenta de apoio nos seguintes aspectos:
+### Decisões técnicas
+
+A interface foi desenvolvida em **React** (Create React App) e consumindo diretamente os endpoints da API via `fetch`. A escolha do React foi motivada pela familiaridade com o ecossistema e pela facilidade de componentização das três telas (Estúdios, Hosts e Agendamentos).
+
+**Estrutura da interface:**
+
+- `App.js` — layout com sidebar fixa de navegação
+- `Studios.js` — formulário de cadastro + tabela de estúdios
+- `Hosts.js` — formulário de cadastro + tabela de hosts
+- `Bookings.js` — formulário de agendamento com seleção de fuso horário + tabela de reservas
+- `index.css` — sistema de design com variáveis CSS (cores, sombras, raios de borda)
+
+**Feedback visual de conflito:** quando a API retorna HTTP 400 (horário indisponível), a interface exibe um alerta vermelho com o título "Horário Indisponível" e a mensagem de erro devolvida pela API, conforme exigido no enunciado.
+
+**Fuso horário:** o seletor de timezone no formulário de agendamento repassa o valor diretamente para a API, que é responsável pela conversão para UTC antes de persistir.
+
+### Uso de Inteligência Artificial na GUI
+
+Conforme a política declarada no edital, o uso de Inteligência Artificial é **totalmente liberado e encorajado** para a construção exclusiva da interface gráfica.
+
+**Ferramenta utilizada:** Claude (Anthropic) — via Claude Code (CLI).
+
+**O que foi feito com auxílio de IA:**
+
+- Geração da estrutura inicial dos componentes React (`Studios.js`, `Hosts.js`, `Bookings.js`)
+- Criação do sistema de estilos em `index.css` com CSS Variables e layout de sidebar
+- Refatoração da UI original (inline styles genéricos) para uma interface com design system consistente
+- Atualização do `README.md` com instruções de execução do frontend
+
+**Como foi feito:** os prompts descreveram o contexto do desafio, a API existente (endpoints, DTOs e regras de negócio) e o nível de qualidade esperado (UI profissional, não genérica). A IA gerou o código; o autor revisou cada arquivo, validou a integração com a API rodando localmente e ajustou detalhes de UX (labels, placeholders, empty states e formatação de horários).
+
+O autor é capaz de executar, explicar a arquitetura e dar manutenção em todo o código da interface gerado.
+
+---
+
+## Uso de Inteligência Artificial (Backend)
+
+Durante o desenvolvimento da API, foi utilizado o auxílio de Inteligência Artificial (Claude - Anthropic) como ferramenta de apoio nos seguintes aspectos:
 
 - Orientação sobre a estrutura e arquitetura do projeto
 - Auxílio na resolução de problemas de configuração do ambiente (JDK, Spring Boot, Swagger)
@@ -59,3 +96,5 @@ As decisões técnicas — como a escolha da arquitetura em camadas, a estratég
 ## Conclusão
 
 A solução entregue cobre todos os requisitos obrigatórios do desafio: CRUD completo de estúdios e hosts, módulo de agendamentos com validação de conflito de horários, suporte a fusos horários e tratamento padronizado de erros. A arquitetura foi pensada para ser clara, modular e de fácil manutenção, seguindo as boas práticas de engenharia de software descritas no edital.
+
+O desafio extra da interface gráfica foi aceito e implementado: a GUI consome todos os endpoints da API, exibe as listagens em tabelas, oferece formulários para cada entidade e apresenta feedback visual de erro nos conflitos de agendamento.

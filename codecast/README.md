@@ -111,18 +111,55 @@ POST /bookings
 }
 ```
 
+## Interface Gráfica (GUI) — Extra
+
+O projeto inclui uma interface web desenvolvida em React, localizada na pasta `frontend-app/`.
+
+### Pré-requisitos
+- Node.js 18+ instalado
+
+### Como rodar a interface
+
+```bash
+# Entre na pasta do frontend
+cd codecast-api/frontend-app
+
+# Instale as dependências
+npm install
+
+# Inicie o servidor de desenvolvimento
+npm start
+```
+
+A interface estará disponível em: `http://localhost:3000`
+
+> **Importante:** a API (Spring Boot) deve estar rodando em `http://localhost:8080` antes de iniciar a interface.
+
+### Funcionalidades da interface
+
+- Listagem, cadastro e remoção de **estúdios**
+- Listagem, cadastro e remoção de **hosts**
+- Criação e cancelamento de **agendamentos** com seleção de fuso horário
+- Feedback visual de erro ao tentar criar agendamento com conflito de horário
+
+---
+
 ## Arquitetura
 
+```
 src/main/java/com/code/codecast/
-
 ├── controller/    → Endpoints HTTP
-
 ├── service/       → Regras de negócio
-
 ├── repository/    → Acesso ao banco
-
 ├── model/         → Entidades do banco
-
 ├── dto/           → Objetos de entrada e saída
-
 └── exception/     → Tratamento de erros
+
+frontend-app/
+└── src/
+    ├── App.js        → Navegação e layout (sidebar)
+    ├── Studios.js    → Tela de estúdios
+    ├── Hosts.js      → Tela de hosts
+    ├── Bookings.js   → Tela de agendamentos
+    └── index.css     → Estilos globais
+```
